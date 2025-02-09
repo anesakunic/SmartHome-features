@@ -99,9 +99,16 @@ class smartTermostat : smartDevice, Podesavanja
                 device.Ukljuci();
             }
 
-            smartTermostat termostat = devices[1] as smartTermostat;
-            termostat?.povecavanje();   //povecavam temp
-            termostat?.smanjivanje();   
+            smartTermostat? termostat = devices[1] as smartTermostat;
+            if (termostat != null)
+            {
+                termostat?.povecavanje();   //povecavam temp
+                termostat?.smanjivanje();  
+            }
+            else{
+                Console.WriteLine("Device not found or not right");
+            }
+             
 
             foreach (var device in devices)   //iskljuci sve
             {
